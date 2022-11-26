@@ -19,7 +19,6 @@ namespace BME.GameLoop
             currentScene.renderer = new SpriteRenderer(currentScene.shader, currentScene.camera);
             currentScene.batchRenderer = new BatchRenderer(currentScene.camera, 10_000);
             currentScene.textRenderer = new TextRenderer(currentScene.camera);
-            currentScene.entityManeger = new EntityManeger();
         }
 
         public static void CleanScene() {

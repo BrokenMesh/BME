@@ -135,7 +135,7 @@ namespace TicTacToe
 
             GameManager.currentScene.textRenderer.AddText(_ContText);
         }
-
+        
         protected override void Render() {
             GameManager.currentScene.batchRenderer.Render();
             GameManager.currentScene.textRenderer.Render();
@@ -145,8 +145,6 @@ namespace TicTacToe
         protected override void Update() {
             fpsCounter.SetText($"FPS: {(int)(1 / frameTime)}");
             TaskSystem.Update();
-
-            //Console.WriteLine(InputManager.GetKeyState(KeyCode.Space));
 
             if (InputManager.GetKey(KeyCode.R)) {
                 Restart();

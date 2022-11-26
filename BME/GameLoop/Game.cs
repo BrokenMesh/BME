@@ -12,8 +12,6 @@ namespace BME.GameLoop
 
         public float frameTime = 0;
 
-        public InputManager input;
-
         protected int initialWindowWidth { get; set; }
         protected int initialWindowHeight { get; set; }
         protected string initialWindowTitle { get; set; } = String.Empty;
@@ -30,7 +28,6 @@ namespace BME.GameLoop
             DisplayManager.CreateWindow(initialWindowWidth, initialWindowHeight, initialWindowTitle);
 
             GameManager.DefaultSceneSetup();
-            input = new InputManager();
 
             LoadContent();
 
@@ -56,7 +53,7 @@ namespace BME.GameLoop
                     _frameTimeSteps = 0;
                 }
 
-                input.Update();
+                TaskSystem.Update();
                 Update();
 
                 Glfw.PollEvents();
