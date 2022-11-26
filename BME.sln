@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BME", "BME\BME.csproj", "{4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{89AF9289-8274-4632-8D42-75173779651A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Demo", "GUI_Demo\GUI_Demo.csproj", "{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI_Demo", "GUI_Demo\GUI_Demo.csproj", "{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

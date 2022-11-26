@@ -13,7 +13,7 @@ namespace BME.GUI {
 
         public Texture standartTexture;
 
-        private static string _UIResFilePath = "./res/UI/";
+        private static string _UIResFilePath = "./res/ui/";
 
         List<Element> elemets;
 

@@ -1,10 +1,12 @@
 ﻿using BME.GUI.UIElement;
+using BME.Rendering.Textures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static OpenGL.OpenGL.GL;
 
 namespace BME.GUI {
     public class ElementFactory {
@@ -26,9 +28,9 @@ namespace BME.GUI {
             if (_perent != null)
                 _scale = _perent.scale;
 
-            Container _container = new Container(_perent, Vector2.Zero, _scale);
-            _container.padding = _padding;
-            return _container;
+            ImageElement _image = new ImageElement(TextureLoader.LoadTexture2DnoFlip_win(_filename, GL_LINEAR) ,_perent, Vector2.Zero, _scale);
+            _image.padding = _padding;
+            return _image;
         }
 
     }

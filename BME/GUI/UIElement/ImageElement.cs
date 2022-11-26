@@ -13,15 +13,15 @@ namespace BME.GUI.UIElement {
 
         public Image image;
         
-        public ImageElement(Image _image, Element _perent, Vector2 _positon, Vector2 _scale) : base(_perent, _positon, _scale) {
+        public ImageElement(Image _image, Element? _perent, Vector2 _positon, Vector2 _scale) : base(_perent, _positon, _scale) {
             image = _image;
         }
 
-        public ImageElement(Element _perent, Vector2 _positon, Vector2 _scale) : base(_perent, _positon, _scale) {
+        public ImageElement(Element? _perent, Vector2 _positon, Vector2 _scale) : base(_perent, _positon, _scale) {
             image = new SimpleImage(GameManager.currentScene.ui.standartTexture);
         }
 
-        public ImageElement(Texture _texture,Element _perent, Vector2 _positon, Vector2 _scale) : base(_perent, _positon, _scale) {
+        public ImageElement(Texture _texture,Element? _perent, Vector2 _positon, Vector2 _scale) : base(_perent, _positon, _scale) {
             image = new SimpleImage(_texture);
         }
 
