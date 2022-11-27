@@ -44,7 +44,7 @@ namespace TicTacToe
         protected override void LoadContent() {
             
             // Setting Up Engine ------------------------
-            DisplayManager.EnableVSync(true); // VSync 
+            DisplayManager.EnableVSync(false); // VSync 
             
             GameManager.DeleteGLScene();
 

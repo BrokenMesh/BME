@@ -4,6 +4,7 @@ using System.Numerics;
 using static OpenGL.OpenGL.GL;
 using GLFW;
 using BME.Rendering.Textures;
+using BME.Util;
 
 namespace BME.Rendering.Shaders {
     public class Shader
@@ -90,7 +91,7 @@ namespace BME.Rendering.Shaders {
 
         public void SetMatrix4x4(string _uniformName, Matrix4x4 _mat) {
             int _location = glGetUniformLocation(programID, _uniformName);
-            glUniformMatrix4fv(_location, 1, false, GetMatrix4x4Values(_mat));
+            glUniformMatrix4fv(_location, 1, false, MathUtil.GetMatrix4x4Values(_mat));
         }
 
         public void SetVec4(string _uniformName, Vector4 _vec4) {
@@ -121,17 +122,6 @@ namespace BME.Rendering.Shaders {
 
         public void SetTexture(Texture _texture, int _textureSlot) {
             textures[_textureSlot] = _texture;
-        }
-
-        // TODO: Put into a math or helper class
-        private float[] GetMatrix4x4Values(Matrix4x4 m) {
-            return new float[]
-            {
-                m.M11, m.M12, m.M13, m.M14,
-                m.M21, m.M22, m.M23, m.M24,
-                m.M31, m.M32, m.M33, m.M34,
-                m.M41, m.M42, m.M43, m.M44
-            };
         }
 
         public void Delete() {
