@@ -19,5 +19,19 @@ namespace BME.Util
                 m.M41, m.M42, m.M43, m.M44
             };
         }
+
+        public static void DFSetVec2(DataFile _df, Vector2 _vec) {
+            _df.GetPath("vector/x").SetFloat(_vec.X);
+            _df.GetPath("vector/y").SetFloat(_vec.Y);
+        }
+        public static Vector2? DFGetVec2(DataFile _df) {
+            float? _x = _df.GetPath("vector/x").GetFloat(0);
+            float? _y = _df.GetPath("vector/y").GetFloat(0);
+
+            if (_x == null || _y == null)
+                return null;
+
+            return new Vector2((float)_x,(float)_y);
+        }
     }
 }
