@@ -9,7 +9,6 @@ using BME.Rendering.Display;
 using BME.Rendering.Sprites;
 using BME.Rendering.Textures;
 using BME.Rendering.Animation;
-using BME.GUI;
 using static OpenGL.OpenGL.GL; // TODO: This is bad
 
 namespace GUI_Demo
@@ -28,8 +27,6 @@ namespace GUI_Demo
         protected override void LoadContent() {
             DisplayManager.EnableVSync(true);
             GameManager.DefaultSceneSetup();
-
-            GameManager.currentScene.ui = new UI();
 
             Texture _boxTexture = TextureLoader.LoadTexture2D_win("./res/textures/Box.bmp", GL_LINEAR);
 

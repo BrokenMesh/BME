@@ -11,6 +11,7 @@ namespace GUI_Demo
     class Program
     {
         public static void Main(string[] args) {
+
             Game _window = new GUI_Demo(1080, 720, "Window");
             _window.Run();
             

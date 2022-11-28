@@ -5,13 +5,14 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
-using BME.ECS.Components;
 using BME.Util;
+using BME.ECS.Entitys.Components;
 
-namespace BME.ECS
+namespace BME.ECS.Entitys
 {
-    public class Entity 
+    public class Entity
     {
+        public bool isEnabled = true;
         public string name;
 
         Transform transform;
@@ -28,6 +29,19 @@ namespace BME.ECS
             transform.rotation = _rotation;
             components = new List<Component>();
         }
+        public Entity(DataFile _df) {
+            name = _df.Get("name").GetString();
+            isEnabled = _df.Get("isEnabled").GetInt(0) == 1;
+            
+            components = new List<Component>();
+            List<string> _components = _df.Get("components").GetDataList();
+
+            foreach (string _component in _components) {
+              //  Components
+            }
+
+            //transform = new Transform(_df.Get("Transfrom"));
+        }
 
         public void AddComponent(Component _component) {
             _component.owner = this;
@@ -38,13 +52,22 @@ namespace BME.ECS
             components.ForEach(c => c.Start());
         }
 
-        public void Update() { 
+        public void Update() {
+            if (!isEnabled) return;
             components.ForEach(c => c.Update());
         }
 
         public void Save(DataFile _df) {
-            transform.Save(_df.Get(name));
-            components.ForEach(c => c.Save(_df.Get(name)));
+            DataFile _ce = _df.Get("name");
+            _ce.Get("name").SetString(name);
+            _ce.Get("isEnabled").SetInt(isEnabled ? 1 : 0);
+
+            foreach (Component _c in components) {
+                _ce.Get("components").SetString(_c.GetType().Name);
+                _ce.Get(_c.GetType().Name).Set(_c.Save());
+            }
+
+            _ce.Get("Transfrom").Set(transform.Save());
         }
 
     }

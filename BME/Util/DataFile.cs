@@ -182,6 +182,13 @@ namespace BME.Util
         #region//GETTERS_AND_SETTERS
 
         // Setters
+
+        public void Set(DataFile _df) {
+            data = _df.data;
+            children = _df.children;
+            isComment = _df.isComment;
+        }
+
         public void SetString(string _value, int _index) {
             while (data.Count <= _index) {
                 data.Add(null);
@@ -219,14 +226,20 @@ namespace BME.Util
 
         // Getters
 
-        public string? GetString(int _index) {
+        public Dictionary<string, DataFile> GetAllChildren() {
+            return children;
+        }
+        public string GetString(int _index) {
             if(_index >= data.Count)
-                return null;
+                return "";
+
+            if (data[_index] == null)
+                return "";
 
             return data[_index];
         }
 
-        public string? GetString() { 
+        public string GetString() { 
             return GetString(0);
         }
 

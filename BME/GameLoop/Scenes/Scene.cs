@@ -3,7 +3,6 @@ using BME.Rendering.Shaders;
 using BME.Rendering.Camera;
 using BME.Rendering.Display;
 using BME.GameLoop.Scenes;
-using BME.GUI;
 
 
 namespace BME.GameLoop.Scenes
@@ -16,7 +15,5 @@ namespace BME.GameLoop.Scenes
         public SpriteRenderer renderer;
         public BatchRenderer batchRenderer;
         public TextRenderer textRenderer;
-
-        public UI ui;
     }
 }

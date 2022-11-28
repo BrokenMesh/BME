@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BME.ECS
+namespace BME.ECS.Entitys
 {
     public abstract class Component
     {
@@ -14,7 +14,7 @@ namespace BME.ECS
         public abstract void Update();
         public abstract void Start();
 
-        public abstract void Save(DataFile _df);
+        public abstract DataFile Save();
 
     }
 }
