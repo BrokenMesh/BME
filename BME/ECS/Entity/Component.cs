@@ -15,6 +15,7 @@ namespace BME.ECS.Entitys
         public abstract void Start();
 
         public abstract DataFile Save();
+        public abstract void Load(DataFile _df);
 
     }
 }

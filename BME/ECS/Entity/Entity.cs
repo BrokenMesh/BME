@@ -29,18 +29,23 @@ namespace BME.ECS.Entitys
             transform.rotation = _rotation;
             components = new List<Component>();
         }
-        public Entity(DataFile _df) {
+        public Entity(DataFile _df, EntityManager _manager) {
             name = _df.Get("name").GetString();
             isEnabled = _df.Get("isEnabled").GetInt(0) == 1;
             
             components = new List<Component>();
             List<string> _components = _df.Get("components").GetDataList();
 
-            foreach (string _component in _components) {
-              //  Components
+            foreach (string _componentname in _components) {
+                Component? _component = _manager.ResolveComponentName(_componentname);
+                if (_component == null) return;
+
+                _component.Load(_df.Get(_componentname));
+                components.Add(_component);
             }
 
-            //transform = new Transform(_df.Get("Transfrom"));
+            transform = new Transform();
+            transform.Load(_df.Get("Transform"));
         }
 
         public void AddComponent(Component _component) {
@@ -58,7 +63,7 @@ namespace BME.ECS.Entitys
         }
 
         public void Save(DataFile _df) {
-            DataFile _ce = _df.Get("name");
+            DataFile _ce = _df.Get(name);
             _ce.Get("name").SetString(name);
             _ce.Get("isEnabled").SetInt(isEnabled ? 1 : 0);
 

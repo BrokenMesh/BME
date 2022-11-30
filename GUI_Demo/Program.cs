@@ -1,10 +1,14 @@
 ﻿using BME.GameLoop;
 using BME.Util;
+using BME.ECS;
+using BME.ECS.Entitys;
+using BME.ECS.Entitys.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
+using BME.ECS.Entity.Components;
 
 namespace GUI_Demo
 {
@@ -12,9 +16,23 @@ namespace GUI_Demo
     {
         public static void Main(string[] args) {
 
-            Game _window = new GUI_Demo(1080, 720, "Window");
-            _window.Run();
-            
+            EntityManager _em = new EntityManager();
+            Entity _player = new Entity("Player", new Vector2(100,100), new Vector2(2,2), 1, 90);
+            Entity _player2 = new Entity("Player", new Vector2(100,200), new Vector2(2,2), 1, 90);
+
+            _player.AddComponent(new DemoComponent("iashfuhasf"));
+
+            _em.AddEntity(_player);
+            _em.AddEntity(_player2);
+
+            DataFile _demo = new DataFile();
+            _em.Save(_demo.Get("EM"));
+
+            DataFile.Write(_demo, "./demo.txt", "    ", ',');
+
+            //Game _window = new GUI_Demo(1080, 720, "Window");
+            //_window.Run();
+
             /*DataFile _df = new DataFile();
 
             DataFile _demo = _df.Get("demo");

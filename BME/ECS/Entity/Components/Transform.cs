@@ -15,13 +15,27 @@ namespace BME.ECS.Entitys.Components
         public float zDepth;
         public float rotation;
 
+        public override void Load(DataFile _df) {
+            Vector2? _pos = MathUtil.DFGetVec2(_df.Get("position"));
+            if (_pos != null) position = (Vector2)_pos;
+            
+            Vector2? _scl = MathUtil.DFGetVec2(_df.Get("scale"));
+            if (_scl != null) scale = (Vector2)_scl;
+
+            float? _zDepth = _df.Get("zDepth").GetFloat(0);
+            if(_zDepth != null) zDepth = (float)_zDepth;
+
+            float? _rotation = _df.Get("rotation").GetFloat(0);
+            if (_rotation != null) rotation = (float)_rotation;
+        }
+
         public override DataFile Save() {
             DataFile _df = new DataFile();
 
             MathUtil.DFSetVec2(_df.Get("position"), position);
             MathUtil.DFSetVec2(_df.Get("scale"), scale);
-            _df.Get("/zDepth").SetFloat(zDepth);
-            _df.Get("/rotation").SetFloat(rotation);
+            _df.Get("zDepth").SetFloat(zDepth);
+            _df.Get("rotation").SetFloat(rotation);
 
             return _df;
         }
