@@ -1,4 +1,5 @@
 ﻿using BME.ECS.Entity.Components;
+using BME.ECS.Entitys.Components;
 using BME.Util;
 using System;
 using System.Collections.Generic;
@@ -46,19 +47,18 @@ namespace BME.ECS.Entitys
         }
 
         public void Load(DataFile _df) {
-            Dictionary<string, DataFile> _children = _df.GetAllChildren();
+            DataFile _entitysDF = _df.Get("entities");
+            Dictionary<string, DataFile> _children = _entitysDF.GetAllChildren();
 
             foreach (string _name in _children.Keys) {
-                entities.Add(new Entity(_df.Get(_name), this));
+                entities.Add(new Entity(_entitysDF.Get(_name), this));
             }
-
         }
 
         public Component? ResolveComponentName(string _name) {
-
             switch (_name) {
-                case new DemoComponent().GetType().Name:
-                    return new DemoComponent();
+                case "Transform":       return new Transform();
+                case "DemoComponent":   return new DemoComponent(); 
             }
 
             if(customResolve != null)

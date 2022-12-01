@@ -41,11 +41,13 @@ namespace BME.ECS.Entitys
                 if (_component == null) return;
 
                 _component.Load(_df.Get(_componentname));
+                _component.owner = this;
                 components.Add(_component);
             }
 
             transform = new Transform();
-            transform.Load(_df.Get("Transform"));
+            transform.owner = this;
+            transform.Load(_df.Get("Transfrom"));
         }
 
         public void AddComponent(Component _component) {

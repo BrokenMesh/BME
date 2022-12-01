@@ -16,11 +16,18 @@ namespace GUI_Demo
     {
         public static void Main(string[] args) {
 
+            Game _window = new GUI_Demo(1080, 720, "Window");
+            _window.Run();
+
+            // Save
+            /*
             EntityManager _em = new EntityManager();
             Entity _player = new Entity("Player", new Vector2(100,100), new Vector2(2,2), 1, 90);
             Entity _player2 = new Entity("Player", new Vector2(100,200), new Vector2(2,2), 1, 90);
 
-            _player.AddComponent(new DemoComponent("iashfuhasf"));
+            DemoComponent _demoComp = new DemoComponent();
+            _demoComp.name = "Player1 demo Component";
+            _player.AddComponent(_demoComp);
 
             _em.AddEntity(_player);
             _em.AddEntity(_player2);
@@ -29,9 +36,18 @@ namespace GUI_Demo
             _em.Save(_demo.Get("EM"));
 
             DataFile.Write(_demo, "./demo.txt", "    ", ',');
+            */
 
-            //Game _window = new GUI_Demo(1080, 720, "Window");
-            //_window.Run();
+            // Load
+            /*
+            EntityManager _em = new EntityManager();
+            DataFile? _df = DataFile.Read("./demo.txt");
+            if (_df == null) {
+                Console.WriteLine("Demo");
+                return;
+            }
+            _em.Load(_df.Get("EM"));
+            */
 
             /*DataFile _df = new DataFile();
 
