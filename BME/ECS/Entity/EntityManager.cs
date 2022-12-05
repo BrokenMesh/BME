@@ -57,8 +57,9 @@ namespace BME.ECS.Entitys
 
         public Component? ResolveComponentName(string _name) {
             switch (_name) {
-                case "Transform":       return new Transform();
-                case "DemoComponent":   return new DemoComponent(); 
+                case "Transform":               return new Transform();
+                case "DemoComponent":           return new DemoComponent(); 
+                case "SimpleSpriteComponent":   return new SimpleSpriteComponent();
             }
 
             if(customResolve != null)

@@ -14,9 +14,9 @@ namespace BME.ECS.Entitys
     {
         public bool isEnabled = true;
         public string name;
+        public Transform transform;
 
-        Transform transform;
-        List<Component> components;
+        private List<Component> components;
 
         public Entity(string _name, Vector2 _position, Vector2 _scale, float _zDepth, float _rotation) {
             name = _name;

@@ -17,7 +17,7 @@ namespace BME.Rendering.Textures
 
             Console.WriteLine($"img: src{_file} size={_textureImg.Width}, {_textureImg.Height} format={_textureImg.PixelFormat},  {_textureImg.RawFormat}");
 
-            return new Texture(_textureImg.Width, _textureImg.Height, (uint)_textureImg.PixelFormat, _textureFilter, _bmpData.Scan0);
+            return new Texture(_file, _textureImg.Width, _textureImg.Height, (uint)_textureImg.PixelFormat, _textureFilter, _bmpData.Scan0);
         }
 
         public static unsafe Texture LoadTexture2DnoFlip_win(string _file, int _textureFilter)
@@ -29,7 +29,7 @@ namespace BME.Rendering.Textures
 
             Console.WriteLine($"img: src{_file} size={_textureImg.Width}, {_textureImg.Height} format={_textureImg.PixelFormat},  {_textureImg.RawFormat}");
 
-            return new Texture(_textureImg.Width, _textureImg.Height, (uint)_textureImg.PixelFormat, _textureFilter, _bmpData.Scan0);
+            return new Texture(_file, _textureImg.Width, _textureImg.Height, (uint)_textureImg.PixelFormat, _textureFilter, _bmpData.Scan0);
         }
 
         public static unsafe List<Texture> LoadTexture2DList_win(string[] _files, int _textureFilter) {
@@ -65,7 +65,7 @@ namespace BME.Rendering.Textures
 
             Console.WriteLine($"img part: src{_file} size={_imgWidth}, {_imgHeight} uv={_uStart}-{_uEnd}, {_vStart}-{_vEnd} format={_textureImg.PixelFormat}");
 
-            return new Texture(_imgWidth, _imgHeight, (uint)_textureImg.PixelFormat, _textureFilter, _bmpData.Scan0);
+            return new Texture(_file, _imgWidth, _imgHeight, (uint)_textureImg.PixelFormat, _textureFilter, _bmpData.Scan0);
         }
 
     }
