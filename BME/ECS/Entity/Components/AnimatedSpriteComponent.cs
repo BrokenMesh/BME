@@ -30,7 +30,7 @@ namespace BME.ECS.Entity.Components {
         public override DataFile Save() {
             DataFile _df = new DataFile();
 
-            _df.Get()
+            _df.GetPath("")
 
             return _df;
         }
