@@ -10,17 +10,11 @@ using System.Threading.Tasks;
 namespace BME.ECS.Entity.Components {
     public class SimpleSpriteComponent : DrawableComponent {
 
-        public Vector4 tint;
-
         private Texture spriteTexture;
 
         public void SetTexture(Texture _texture) {
             spriteTexture = _texture;
             tint = Vector4.One;
-        }
-
-        public void SetTint(float _r, float _g, float _b, float _a) {
-            tint = new Vector4(_r,_g,_b,_a);
         }
 
         public override Texture GetTexture() {
@@ -43,6 +37,7 @@ namespace BME.ECS.Entity.Components {
         }
 
         public override void Start() {
+            base.Start();
         }
 
         public override void Update() {

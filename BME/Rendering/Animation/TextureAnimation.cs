@@ -7,7 +7,7 @@ using static OpenGL.OpenGL.GL;
 
 namespace BME.Rendering.Animation
 {
-    class TextureAnimation
+    public class TextureAnimation
     {
         public float animationTime = 1.0f;
         public AnimationType type = AnimationType.Linear | AnimationType.LoopFlag;

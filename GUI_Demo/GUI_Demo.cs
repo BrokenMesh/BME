@@ -13,12 +13,15 @@ using static OpenGL.OpenGL.GL; // TODO: This is bad
 using BME.ECS.Entity.Components;
 using BME.ECS.Entitys;
 using BME.Util;
+using BME.ECS;
 
 namespace GUI_Demo
 {
     class GUI_Demo : Game
     {
         SimpleSprite _box;
+
+        Level _levle;
 
         public GUI_Demo(int initialWindowWidth, int initialWindowHeight, string initialWindowTitle) : base(initialWindowWidth, initialWindowHeight, initialWindowTitle)
         { 
@@ -57,7 +60,8 @@ namespace GUI_Demo
 
             // Saving
             /*
-            EntityManager _em = new EntityManager();
+            Level _levle = new Level();
+
             Entity _player = new Entity("Player", new Vector2(100, 100), new Vector2(2, 2), 1, 90);
             Entity _player2 = new Entity("Player", new Vector2(100, 200), new Vector2(2, 2), 1, 90);
 
@@ -70,35 +74,36 @@ namespace GUI_Demo
             _sp.SetTint(1,0,0.2341f,1);
             _player.AddComponent(_sp);
 
-            _em.AddEntity(_player);
-            _em.AddEntity(_player2);
+            _levle.entityManager.AddEntity(_player);
+            _levle.entityManager.AddEntity(_player2);
 
             DataFile _demo = new DataFile();
-            _em.Save(_demo.Get("EM"));
-
+            _levle.Save(_demo);
             DataFile.Write(_demo, "./demo.txt", "    ", ',');
             */
 
             // Load
-            /*
-            EntityManager _em = new EntityManager();
+
             DataFile? _df = DataFile.Read("./demo.txt");
             if (_df == null) {
                 Console.WriteLine("Demo");
                 return;
             }
-            _em.Load(_df.Get("EM"));
-            */
+            _levle = new Level(_df);
+            _levle.Start();
+            
         }
 
         protected override void Render() {
-            GameManager.currentScene.batchRenderer.Render();
-            GameManager.currentScene.textRenderer.Render();
-            GameManager.currentScene.batchRenderer.PresentRender();
+            //GameManager.currentScene.batchRenderer.Render();
+            //GameManager.currentScene.textRenderer.Render();
+            //GameManager.currentScene.batchRenderer.PresentRender();
+
+            _levle.Render();
         }
 
-        protected override void Update() { 
-
+        protected override void Update() {
+            _levle.Update();
         }
         protected override void Close() {
 

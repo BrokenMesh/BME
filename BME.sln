@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI_Demo", "GUI_Demo\GUI_Demo.csproj", "{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{78399979-E0B0-4D75-8AB9-D4D9CE172EFC}"
+	ProjectSection(SolutionItems) = preProject
+		GUI_Demo\bin\Debug\net6.0\demo.txt = GUI_Demo\bin\Debug\net6.0\demo.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
