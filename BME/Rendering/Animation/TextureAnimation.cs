@@ -12,7 +12,8 @@ namespace BME.Rendering.Animation
         public float animationTime = 1.0f;
         public AnimationType type = AnimationType.Linear | AnimationType.LoopFlag;
 
-        private bool typeArray = false;
+        public bool isAtlas = false;
+        public Vector2 atlasSize = Vector2.Zero;
 
         private List<Texture> animationTextures = new List<Texture>();
 
@@ -22,13 +23,14 @@ namespace BME.Rendering.Animation
         private float animationPassedTime = 0.0f;
 
         public TextureAnimation(List<Texture> _animationTextures) {
-            typeArray = true;
+            isAtlas = false;
             animationTextures = _animationTextures;
             frameCount = animationTextures.Count;
         }
 
         public TextureAnimation(string _textureAtlasFilename, int _textureCountX, int _textureCountY) {
-            typeArray = false;
+            isAtlas = true;
+            atlasSize = new Vector2(_textureCountX, _textureCountY);
 
             frameCount = _textureCountX * _textureCountY;
 
@@ -88,6 +90,10 @@ namespace BME.Rendering.Animation
         public void Delete() {
             foreach (Texture _t in animationTextures)
                 _t.Delete();
+        }
+
+        public List<Texture> GetAllTextures() {
+            return animationTextures;
         }
 
     }

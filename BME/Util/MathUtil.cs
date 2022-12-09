@@ -21,12 +21,12 @@ namespace BME.Util
         }
 
         public static void DFSetVec2(DataFile _df, Vector2 _vec) {
-            _df.GetPath("vector/x").SetFloat(_vec.X);
-            _df.GetPath("vector/y").SetFloat(_vec.Y);
+            _df.GetPath("x").SetFloat(_vec.X);
+            _df.GetPath("y").SetFloat(_vec.Y);
         }
         public static Vector2? DFGetVec2(DataFile _df) {
-            float? _x = _df.GetPath("vector/x").GetFloat(0);
-            float? _y = _df.GetPath("vector/y").GetFloat(0);
+            float? _x = _df.GetPath("x").GetFloat(0);
+            float? _y = _df.GetPath("y").GetFloat(0);
 
             if (_x == null || _y == null)
                 return null;
@@ -35,16 +35,16 @@ namespace BME.Util
         }
 
         public static void DFSetColor(DataFile _df, Vector4 _col) {
-            _df.GetPath("color/r").SetFloat(_col.X);
-            _df.GetPath("color/g").SetFloat(_col.Y);
-            _df.GetPath("color/b").SetFloat(_col.Z);
-            _df.GetPath("color/a").SetFloat(_col.W);
+            _df.GetPath("r").SetFloat(_col.X);
+            _df.GetPath("g").SetFloat(_col.Y);
+            _df.GetPath("b").SetFloat(_col.Z);
+            _df.GetPath("a").SetFloat(_col.W);
         }
         public static Vector4? DFGetColor(DataFile _df) {
-            float? _r = _df.GetPath("color/r").GetFloat(0);
-            float? _g = _df.GetPath("color/g").GetFloat(0);
-            float? _b = _df.GetPath("color/b").GetFloat(0);
-            float? _a = _df.GetPath("color/a").GetFloat(0);
+            float? _r = _df.GetPath("r").GetFloat(0);
+            float? _g = _df.GetPath("g").GetFloat(0);
+            float? _b = _df.GetPath("b").GetFloat(0);
+            float? _a = _df.GetPath("a").GetFloat(0);
 
             if (_r == null || _g == null || _b == null || _a == null)
                 return null;

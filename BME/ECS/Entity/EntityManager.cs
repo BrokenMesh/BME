@@ -60,6 +60,7 @@ namespace BME.ECS.Entitys
                 case "Transform":               return new Transform();
                 case "DemoComponent":           return new DemoComponent(); 
                 case "SimpleSpriteComponent":   return new SimpleSpriteComponent();
+                case "AnimatedSpriteComponent":   return new AnimatedSpriteComponent();
             }
 
             if(customResolve != null)

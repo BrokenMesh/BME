@@ -34,31 +34,7 @@ namespace GUI_Demo
             DisplayManager.EnableVSync(true);
             GameManager.DefaultSceneSetup();
 
-            Texture _boxTexture = TextureLoader.LoadTexture2D_win("./res/textures/Box.bmp", GL_LINEAR);
-
-            SimpleSprite _bgSprite = new SimpleSprite(_boxTexture);
-            _bgSprite.tint = new Vector4(0.3f, 0.3f, 0.3f, 1f);
-            _bgSprite.scale = new Vector2(initialWindowWidth, initialWindowHeight);
-            _bgSprite.position = new Vector2(initialWindowWidth / 2, initialWindowHeight / 2);
-            _bgSprite.zDepth = -10;
-
-            GameManager.currentScene.batchRenderer.AddSprite(_bgSprite);
-
-            _box = new SimpleSprite(_boxTexture);
-            _box.tint = new Vector4(0.0f, 0.0f, 1f, 1f);
-            _box.scale = new Vector2(100,100);
-            _box.position = new Vector2(initialWindowWidth / 4, initialWindowHeight / 2);
-            _box.zDepth = -1;
-
-            GameManager.currentScene.batchRenderer.AddSprite(_box);
-
-            float _time = 5f;
-            TaskSystem.AddTimedTask((float _t) => {
-                _box.position = new Vector2((initialWindowWidth / 4) + (initialWindowWidth /2)*(_t/_time), initialWindowHeight / 2);
-            }, _time, AnimationType.PingPong | AnimationType.LoopFlag);
-
-
-            // Saving
+            // Saving    
             /*
             Level _levle = new Level();
 
@@ -74,6 +50,23 @@ namespace GUI_Demo
             _sp.SetTint(1,0,0.2341f,1);
             _player.AddComponent(_sp);
 
+            AnimatedSpriteComponent _asc = new AnimatedSpriteComponent();
+            string[] _aniFilenames = new string[] {
+                "./res/textures/walk/walk1.png",
+                "./res/textures/walk/walk2.png",
+                "./res/textures/walk/walk3.png",
+                "./res/textures/walk/walk4.png",
+                "./res/textures/walk/walk5.png",
+                "./res/textures/walk/walk6.png",
+                "./res/textures/walk/walk7.png",
+                "./res/textures/walk/walk8.png",
+                "./res/textures/walk/walk9.png",
+                "./res/textures/walk/walk10.png",
+            };
+            _asc.animation = new TextureAnimation(TextureLoader.LoadTexture2DList_win(_aniFilenames, GL_LINEAR));
+
+            _player2.AddComponent(_asc);
+
             _levle.entityManager.AddEntity(_player);
             _levle.entityManager.AddEntity(_player2);
 
@@ -84,6 +77,7 @@ namespace GUI_Demo
 
             // Load
 
+            
             DataFile? _df = DataFile.Read("./demo.txt");
             if (_df == null) {
                 Console.WriteLine("Demo");
@@ -92,13 +86,10 @@ namespace GUI_Demo
             _levle = new Level(_df);
             _levle.Start();
             
+            
         }
 
         protected override void Render() {
-            //GameManager.currentScene.batchRenderer.Render();
-            //GameManager.currentScene.textRenderer.Render();
-            //GameManager.currentScene.batchRenderer.PresentRender();
-
             _levle.Render();
         }
 

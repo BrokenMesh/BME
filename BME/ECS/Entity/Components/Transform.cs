@@ -26,7 +26,7 @@ namespace BME.ECS.Entitys.Components
             if(_zDepth != null) zDepth = (float)_zDepth;
 
             float? _rotation = _df.Get("rotation").GetFloat(0);
-            if (_rotation != null) rotation = (float)_rotation;
+            if (_rotation != null) rotation = (float)_rotation * ((float)Math.PI / 180);
         }
 
         public override DataFile Save() {
@@ -35,7 +35,7 @@ namespace BME.ECS.Entitys.Components
             MathUtil.DFSetVec2(_df.Get("position"), position);
             MathUtil.DFSetVec2(_df.Get("scale"), scale);
             _df.Get("zDepth").SetFloat(zDepth);
-            _df.Get("rotation").SetFloat(rotation);
+            _df.Get("rotation").SetFloat(rotation * (180 / (float)Math.PI));
 
             return _df;
         }
