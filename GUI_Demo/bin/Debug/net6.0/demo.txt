@@ -1,0 +1,173 @@
+em
+{
+    entities
+    {
+        Player
+        {
+            name = Player
+            isEnabled = 1
+            components = DemoComponent, SimpleSpriteComponent
+            DemoComponent
+            {
+                #This thing dont work
+                name = Player1 demo Component
+            }
+
+            SimpleSpriteComponent
+            {
+                texture = ./res/textures/Box.bmp
+                tint
+                {
+                    color
+                    {
+                        r = 1
+                        g = 0
+                        b = 0.2341
+                        a = 1
+                    }
+
+                }
+
+            }
+
+            Transfrom
+            {
+                position
+                {
+                    vector
+                    {
+                        x = 100
+                        y = 100
+                    }
+
+                }
+
+                scale
+                {
+                    vector
+                    {
+                        x = 200
+                        y = 200
+                    }
+
+                }
+
+                zDepth = 1
+                rotation = 90
+            }
+
+        }
+
+        Background
+        {
+            name = Background
+            isEnabled = 1
+            components = SimpleSpriteComponent
+
+            SimpleSpriteComponent
+            {
+                texture = ./res/textures/Box.bmp
+                tint
+                {
+                    color
+                    {
+                        r = 0.8
+                        g = 1
+                        b = 0.7
+                        a = 1
+                    }
+
+                }
+
+            }
+
+            Transfrom
+            {
+                position
+                {
+                    vector
+                    {
+                        x = 0
+                        y = 0
+                    }
+
+                }
+
+                scale
+                {
+                    vector
+                    {
+                        x = 1080
+                        y = 720
+                    }
+
+                }
+
+                zDepth = -10
+                rotation = 0
+            }
+
+        }
+
+        Player(1)
+        {
+            name = Player(1)
+            isEnabled = 1
+            Transfrom
+            {
+                position
+                {
+                    vector
+                    {
+                        x = 100
+                        y = 200
+                    }
+
+                }
+
+                scale
+                {
+                    vector
+                    {
+                        x = 2
+                        y = 2
+                    }
+
+                }
+
+                zDepth = 1
+                rotation = 90
+            }
+
+        }
+
+    }
+
+}
+
+rm
+{
+    camera
+    {
+        focusPoint
+        {
+            vector
+            {
+                x = 0
+                y = 0
+            }
+
+        }
+
+        zoom = 1
+    }
+
+    renderer
+    {
+        vertexShader = ./res/shaders/batchRenderer.vs
+        fragmentShader = ./res/shaders/batchRenderer.fs
+        maxVertexCount = 10000
+    }
+
+}
+
