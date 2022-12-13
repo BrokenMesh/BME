@@ -17,5 +17,9 @@ namespace BME.ECS.Entitys
         public abstract DataFile Save();
         public abstract void Load(DataFile _df);
 
+        public virtual bool Signal(string _signal) {
+            return false;
+        }
+
     }
 }

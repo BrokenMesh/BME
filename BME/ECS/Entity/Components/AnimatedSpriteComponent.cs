@@ -14,6 +14,7 @@ namespace BME.ECS.Entity.Components {
     public class AnimatedSpriteComponent : DrawableComponent {
 
         public TextureAnimation animation;
+        public bool isPlaying = true;
 
         public override Texture GetTexture() {
             return animation.GetTexture();
@@ -24,7 +25,7 @@ namespace BME.ECS.Entity.Components {
         }
 
         public override void Update() {
-            animation.Update();
+            if(isPlaying) animation.Update();
         }
         public override void Load(DataFile _df) {
             bool _isAtlas = _df.GetPath("animation/textures/isAtlas").GetString() == "true" ? true : false;
@@ -98,6 +99,20 @@ namespace BME.ECS.Entity.Components {
             return _df;
         }
 
+        public override bool Signal(string _signal) {
+
+            if (_signal == "Pause-Animation") {
+                isPlaying = false;
+                return true;
+            }
+
+            if (_signal == "Play-Animation") {            
+                isPlaying = true;
+                return true;
+            }
+
+            return false;
+        }
         public override void Delete() {
             animation.Delete();
         }

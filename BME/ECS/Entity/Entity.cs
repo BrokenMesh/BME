@@ -14,12 +14,14 @@ namespace BME.ECS.Entitys
     {
         public bool isEnabled = true;
         public string name;
+        public string tag;
         public Transform transform;
 
         private List<Component> components;
 
-        public Entity(string _name, Vector2 _position, Vector2 _scale, float _zDepth, float _rotation) {
+        public Entity(string _name, string _tag, Vector2 _position, Vector2 _scale, float _zDepth, float _rotation) {
             name = _name;
+            tag = _tag;
 
             transform = new Transform();
             transform.owner = this;
@@ -31,6 +33,7 @@ namespace BME.ECS.Entitys
         }
         public Entity(DataFile _df, EntityManager _manager) {
             name = _df.Get("name").GetString();
+            tag = _df.Get("tag").GetString();
             isEnabled = _df.Get("isEnabled").GetInt(0) == 1;
             
             components = new List<Component>();
@@ -67,6 +70,7 @@ namespace BME.ECS.Entitys
         public void Save(DataFile _df) {
             DataFile _ce = _df.Get(name);
             _ce.Get("name").SetString(name);
+            _ce.Get("tag").SetString(tag);
             _ce.Get("isEnabled").SetInt(isEnabled ? 1 : 0);
 
             foreach (Component _c in components) {
@@ -75,6 +79,14 @@ namespace BME.ECS.Entitys
             }
 
             _ce.Get("Transfrom").Set(transform.Save());
+        }
+
+        public bool Signal(string _componentName, string _signal) {
+            foreach (Component _c in components) {
+                if (_c.GetType().Name == _componentName)
+                    return _c.Signal(_signal);
+            }
+            return false;
         }
 
     }

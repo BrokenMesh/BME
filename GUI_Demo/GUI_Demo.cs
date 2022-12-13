@@ -19,9 +19,7 @@ namespace GUI_Demo
 {
     class GUI_Demo : Game
     {
-        SimpleSprite _box;
-
-        Level _levle;
+        Level levle;
 
         public GUI_Demo(int initialWindowWidth, int initialWindowHeight, string initialWindowTitle) : base(initialWindowWidth, initialWindowHeight, initialWindowTitle)
         { 
@@ -33,23 +31,22 @@ namespace GUI_Demo
         protected override void LoadContent() {
             DisplayManager.EnableVSync(true);
             GameManager.DefaultSceneSetup();
-
             
             DataFile? _df = DataFile.Read("./demo.txt");
             if (_df == null) {
                 Console.WriteLine("Demo");
                 return;
             }
-            _levle = new Level(_df);
-            _levle.Start(); 
+            levle = new Level(_df);
+            levle.Start(); 
         }
 
         protected override void Render() {
-            _levle.Render();
+            levle.Render();
         }
 
         protected override void Update() {
-            _levle.Update();
+            levle.Update();
         }
         protected override void Close() {
 
