@@ -6,11 +6,16 @@ em
         {
             name = Player
             isEnabled = 1
-            components = DemoComponent, AnimatedSpriteComponent
+            components = DemoComponent, AnimatedSpriteComponent, PlayerComponent
             DemoComponent
             {
                 #This thing dont work
                 name = Player1 demo Component
+            }
+
+            PlayerComponent
+            {
+                speed = 50
             }
 
             AnimatedSpriteComponent

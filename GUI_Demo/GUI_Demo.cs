@@ -32,12 +32,22 @@ namespace GUI_Demo
             DisplayManager.EnableVSync(true);
             GameManager.DefaultSceneSetup();
             
+            levle = new Level();
+
+            levle.entityManager.SetCustomeResolver((string _name) => {
+                switch (_name) {
+                    case "PlayerComponent": return new PlayerComponent();
+                }
+                return null;
+            });
+
             DataFile? _df = DataFile.Read("./demo.txt");
             if (_df == null) {
                 Console.WriteLine("Demo");
                 return;
             }
-            levle = new Level(_df);
+
+            levle.Load(_df);
             levle.Start(); 
         }
 

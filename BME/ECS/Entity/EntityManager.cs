@@ -73,9 +73,10 @@ namespace BME.ECS.Entitys
             bool _state = false;
 
             foreach (Entity _e in entities) {
-                if(_e.)
-                if (_e.Signal(_componentName, _value))
-                    _state = true;
+                if (_e.tag == _tag) {
+                    if (_e.Signal(_componentName, _value))
+                        _state = true;
+                }
             }
 
             return _state;
@@ -99,6 +100,10 @@ namespace BME.ECS.Entitys
             }
 
             return false;
+        }
+
+        public void SetCustomeResolver(Func<string, Component?> _resolver) {
+            customResolve = _resolver;
         }
 
     }
