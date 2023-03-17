@@ -60,13 +60,50 @@ namespace BME.ECS.Entitys
                 case "Transform":               return new Transform();
                 case "DemoComponent":           return new DemoComponent(); 
                 case "SimpleSpriteComponent":   return new SimpleSpriteComponent();
-                case "AnimatedSpriteComponent":   return new AnimatedSpriteComponent();
+                case "AnimatedSpriteComponent": return new AnimatedSpriteComponent();
             }
 
             if(customResolve != null)
                 return customResolve(_name);
 
             return null;
+        }
+
+        public bool SignalByTag(string _tag, string _componentName, string _value) {
+            bool _state = false;
+
+            foreach (Entity _e in entities) {
+                if (_e.tag == _tag) {
+                    if (_e.Signal(_componentName, _value))
+                        _state = true;
+                }
+            }
+
+            return _state;
+        }
+
+        public bool SignalAll(string _componentName, string _value) {
+            bool _state = false;
+            
+            foreach (Entity _e in entities) {
+                if (_e.Signal(_componentName, _value))
+                    _state = true;
+            }
+
+            return _state;
+        }
+
+        public bool SendSignal(string _entityName, string _componentName, string _value) {
+            foreach (Entity _e in entities) {
+                if(_e.name == _entityName)
+                    return _e.Signal(_componentName, _value);
+            }
+
+            return false;
+        }
+
+        public void SetCustomeResolver(Func<string, Component?> _resolver) {
+            customResolve = _resolver;
         }
 
     }

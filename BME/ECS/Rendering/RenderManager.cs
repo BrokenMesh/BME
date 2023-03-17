@@ -28,17 +28,20 @@ namespace BME.ECS.Rendering {
             drawables = new List<DrawableComponent>();
         }
 
-        public RenderManager(DataFile _df) {     
+        public RenderManager(DataFile _df) {
             drawables = new List<DrawableComponent>();
+            Load(_df);
+        }
 
+        public void Load(DataFile _df) {
             // camera
             Vector2? _focusPoint = MathUtil.DFGetVec2(_df.GetPath("camera/focusPoint"));
             float? _zoom = _df.GetPath("camera/zoom").GetFloat(0);
 
             if (_zoom != null && _focusPoint != null) {
                 camera = new Camera2D((Vector2)_focusPoint / 2, (float)_zoom);
-            } else {      
-                camera = new Camera2D(DisplayManager.windowSize / 2,1f);
+            } else {
+                camera = new Camera2D(DisplayManager.windowSize / 2, 1f);
             }
 
             // renderer

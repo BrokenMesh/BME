@@ -19,9 +19,7 @@ namespace Level_Demo
 {
     class LDemo : Game
     {
-        SimpleSprite _box;
-
-        Level _levle;
+        Level levle;
 
         public LDemo(int initialWindowWidth, int initialWindowHeight, string initialWindowTitle) : base(initialWindowWidth, initialWindowHeight, initialWindowTitle)
         { 
@@ -34,21 +32,31 @@ namespace Level_Demo
             DisplayManager.EnableVSync(true);
             GameManager.DefaultSceneSetup();
             
+            levle = new Level();
+
+            levle.entityManager.SetCustomeResolver((string _name) => {
+                switch (_name) {
+                    case "PlayerComponent": return new PlayerComponent();
+                }
+                return null;
+            });
+
             DataFile? _df = DataFile.Read("./demo.txt");
             if (_df == null) {
                 Console.WriteLine("Demo");
                 return;
             }
-            _levle = new Level(_df);
-            _levle.Start(); 
+
+            levle.Load(_df);
+            levle.Start(); 
         }
 
         protected override void Render() {
-            _levle.Render();
+            levle.Render();
         }
 
         protected override void Update() {
-            _levle.Update();
+            levle.Update();
         }
         protected override void Close() {
 

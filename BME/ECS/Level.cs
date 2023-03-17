@@ -29,10 +29,15 @@ namespace BME.ECS
                 throw new Exception("Cannot load more then one level.");
 
             current = this;
-
             entityManager = new EntityManager();
+            renderManager = new RenderManager();
+
+            Load(_sceneData);
+        }
+
+        public void Load(DataFile _sceneData) {
             entityManager.Load(_sceneData.Get("em"));
-            renderManager = new RenderManager(_sceneData.Get("rm"));
+            renderManager.Load(_sceneData.Get("rm"));
         }
 
         public void Save(DataFile _sceneData) {
