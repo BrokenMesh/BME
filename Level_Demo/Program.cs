@@ -11,13 +11,12 @@ using System.Numerics;
 using BME.ECS.Entity.Components;
 using BME.Rendering.Textures;
 
-namespace GUI_Demo
+namespace Level_Demo
 {
     class Program
     {
         public static void Main(string[] args) {
-
-            Game _window = new GUI_Demo(1080, 720, "Window");
+            Game _window = new LDemo(1080, 720, "Window");
             _window.Run();
         }
 

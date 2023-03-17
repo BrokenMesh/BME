@@ -15,15 +15,15 @@ using BME.ECS.Entitys;
 using BME.Util;
 using BME.ECS;
 
-namespace GUI_Demo
+namespace Level_Demo
 {
-    class GUI_Demo : Game
+    class LDemo : Game
     {
         SimpleSprite _box;
 
         Level _levle;
 
-        public GUI_Demo(int initialWindowWidth, int initialWindowHeight, string initialWindowTitle) : base(initialWindowWidth, initialWindowHeight, initialWindowTitle)
+        public LDemo(int initialWindowWidth, int initialWindowHeight, string initialWindowTitle) : base(initialWindowWidth, initialWindowHeight, initialWindowTitle)
         { 
         }
 
@@ -33,7 +33,6 @@ namespace GUI_Demo
         protected override void LoadContent() {
             DisplayManager.EnableVSync(true);
             GameManager.DefaultSceneSetup();
-
             
             DataFile? _df = DataFile.Read("./demo.txt");
             if (_df == null) {

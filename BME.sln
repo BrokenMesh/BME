@@ -7,12 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BME", "BME\BME.csproj", "{4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{89AF9289-8274-4632-8D42-75173779651A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI_Demo", "GUI_Demo\GUI_Demo.csproj", "{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{78399979-E0B0-4D75-8AB9-D4D9CE172EFC}"
-	ProjectSection(SolutionItems) = preProject
-		GUI_Demo\bin\Debug\net6.0\demo.txt = GUI_Demo\bin\Debug\net6.0\demo.txt
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Level_Demo", "Level_Demo\Level_Demo.csproj", "{F21ABA1E-00C8-444A-95DD-D3656C784361}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +23,10 @@ Global
 		{89AF9289-8274-4632-8D42-75173779651A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89AF9289-8274-4632-8D42-75173779651A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89AF9289-8274-4632-8D42-75173779651A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CC925DB-D0F8-4910-A3A0-25F6AB7830AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21ABA1E-00C8-444A-95DD-D3656C784361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21ABA1E-00C8-444A-95DD-D3656C784361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21ABA1E-00C8-444A-95DD-D3656C784361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21ABA1E-00C8-444A-95DD-D3656C784361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

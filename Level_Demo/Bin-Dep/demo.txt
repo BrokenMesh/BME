@@ -1,0 +1,137 @@
+em
+{
+    entities
+    {
+        Background
+        {
+            name = Background
+            isEnabled = 1
+            components = DemoComponent, SimpleSpriteComponent
+            DemoComponent
+            {
+                #This thing dont work
+                name = Background demo Component
+            }
+
+            SimpleSpriteComponent
+            {
+                texture = ./res/textures/Box.bmp
+                tint
+                {
+                    r = 1
+                    g = 0
+                    b = 0.2341
+                    a = 1
+                }
+
+            }
+
+            Transfrom
+            {
+                position
+                {
+                    x = 0
+                    y = 0
+                }
+
+                scale
+                {
+                    x = 1080
+                    y = 720
+                }
+
+                zDepth = -10
+                rotation = 0
+            }
+
+        }
+
+        Player
+        {
+            name = Player
+            isEnabled = 1
+            components = AnimatedSpriteComponent
+            AnimatedSpriteComponent
+            {
+                animation
+                {
+                    time = 1
+                    flags = 16
+                    textures
+                    {
+                        isAtlas = false
+                        count = 10
+                        path
+                        {
+                            texture[0] = ./res/textures/walk/walk1.png
+                            texture[1] = ./res/textures/walk/walk2.png
+                            texture[2] = ./res/textures/walk/walk3.png
+                            texture[3] = ./res/textures/walk/walk4.png
+                            texture[4] = ./res/textures/walk/walk5.png
+                            texture[5] = ./res/textures/walk/walk6.png
+                            texture[6] = ./res/textures/walk/walk7.png
+                            texture[7] = ./res/textures/walk/walk8.png
+                            texture[8] = ./res/textures/walk/walk9.png
+                            texture[9] = ./res/textures/walk/walk10.png
+                        }
+
+                    }
+
+                }
+
+                tint
+                {
+                    r = 1
+                    g = 1
+                    b = 1
+                    a = 1
+                }
+
+            }
+
+            Transfrom
+            {
+                position
+                {
+                    x = 100
+                    y = 200
+                }
+
+                scale
+                {
+                    x = 200
+                    y = 200
+                }
+
+                zDepth = 1
+                rotation = 70
+            }
+
+        }
+
+    }
+
+}
+
+rm
+{
+    camera
+    {
+        focusPoint
+        {
+            x = 0
+            y = 0
+        }
+
+        zoom = 1
+    }
+
+    renderer
+    {
+        vertexShader = ./res/shaders/batchRenderer.vs
+        fragmentShader = ./res/shaders/batchRenderer.fs
+        maxVertexCount = 10000
+    }
+
+}
+

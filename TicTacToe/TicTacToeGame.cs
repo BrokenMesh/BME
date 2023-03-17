@@ -134,6 +134,7 @@ namespace TicTacToe
             _ContText.SetText("(R)Restart");
 
             GameManager.currentScene.textRenderer.AddText(_ContText);
+
         }
         
         protected override void Render() {
