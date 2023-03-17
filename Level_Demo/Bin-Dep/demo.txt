@@ -50,7 +50,12 @@ em
         {
             name = Player
             isEnabled = 1
-            components = AnimatedSpriteComponent
+            components = PlayerComponent, AnimatedSpriteComponent
+            PlayerComponent
+            {
+                speed = 500
+            }
+
             AnimatedSpriteComponent
             {
                 animation

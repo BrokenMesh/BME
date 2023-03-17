@@ -9,7 +9,7 @@ using BME.GameLoop;
 using BME.GameLoop.Input;
 using BME.Util;
 
-namespace GUI_Demo {
+namespace Level_Demo {
     public class PlayerComponent : Component {
 
         public float speed = 5;
