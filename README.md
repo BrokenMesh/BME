@@ -4,7 +4,7 @@
 <h3 align="center">BrokenMesh Game Engine</h3>
 
   <p align="center">
-    It a 2D Game Engine using GLFW and OpenGL. It allows the making of simple 2D games with Input, Sprites, Animation and Text being handle. 
+    It a 2D Game Engine using GLFW and OpenGL. It allows the making of simple 2D games with Input, Sprites, Animation and Text being handled. 
     <br />
     <a href="https://github.com/BrokenMesh/BME/issues">Report Bug</a>
     ·
