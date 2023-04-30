@@ -4,7 +4,7 @@
 <h3 align="center">BrokenMesh Game Engine</h3>
 
   <p align="center">
-    It a 2D Game Engine using GLFW and OpenGL. It allows the making of simple 2D games with Input, Sprites, Animation and Text being handled. 
+    A 2D Game Engine using GLFW and OpenGL. It allows the creation of simple 2D games with Input, Sprites, Animation and Text being handled. 
     <br />
     <a href="https://github.com/BrokenMesh/BME/issues">Report Bug</a>
     ·
@@ -32,7 +32,7 @@
 
 Create a new project and add BME as a project dependency.
 
-Create a new class with the name of you game and inherit the Game class.
+Create a new class with the name of your game and inherit the Game class.
 ```C#
 public class MyGame : Game
 {
@@ -91,7 +91,7 @@ protected override void Render() {
 }
 ```
 
-At last you should be able to see your sprite. 
+You should be able to see your sprite. 
 
 <!-- LICENSE -->
 ## License
