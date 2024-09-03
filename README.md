@@ -101,7 +101,7 @@ Distributed under the GNU GENERAL PUBLIC LICENSE License. See `LICENSE.txt` for 
 <!-- CONTACT -->
 ## Contact
 
-Hicham El-Kord - hichamelkord@gmail.com
+Hicham El-Kord - elkordhicham@gmail.com
 
 Project Link: [https://github.com/BrokenMesh/BME](https://github.com/github_username/repo_name)
 
